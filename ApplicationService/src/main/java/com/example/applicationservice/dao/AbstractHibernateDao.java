@@ -40,4 +40,8 @@ public abstract class AbstractHibernateDao<T> {
         getCurrentSession().save(item);
     }
 
+    public void update(T item){
+        getCurrentSession().update(item);
+    }
+
 }

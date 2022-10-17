@@ -5,10 +5,7 @@ import com.example.applicationservice.domain.response.AllApplicationWorkFlowResp
 import com.example.applicationservice.domain.response.ApplicationWorkFlowResponse;
 import com.example.applicationservice.domain.response.ResponseStatus;
 import com.example.applicationservice.service.ApplicationWorkFlowService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -62,4 +59,37 @@ public class ApplicationWorkFlowController {
         }
     }
 
+    //POST createNewApplicationWorkflow
+    @PostMapping()
+    public ApplicationWorkFlowResponse createNewApplicationWorkFlow(
+        @RequestBody ApplicationWorkFlow applicationWorkFlow
+    ){
+        applicationWorkFlowService.createNewApplicationWorkFlow(applicationWorkFlow);
+
+        return ApplicationWorkFlowResponse.builder()
+                .responseStatus(
+                        ResponseStatus.builder()
+                                .success(true)
+                                .message("New ApplicationWorkFlow created")
+                                .build()
+                )
+                .applicationWorkFlow(applicationWorkFlow)
+                .build();
+    }
+
+
+    //PATCH updateStatusApplicationWorkflow
+    @PatchMapping("/{id}/{status}")
+    public ApplicationWorkFlowResponse updateStatusApplicationWorkflow(@PathVariable Integer id, @PathVariable String status){
+        applicationWorkFlowService.updateUserStatus(id, status);
+        return ApplicationWorkFlowResponse.builder()
+                .responseStatus(
+                        ResponseStatus.builder()
+                                .success(true)
+                                .message("Success! ApplicationWorkFlow status changed")
+                                .build()
+                )
+                .applicationWorkFlow(getApplicationWorkFlowById(id).getApplicationWorkFlow())
+                .build();
+    }
 }

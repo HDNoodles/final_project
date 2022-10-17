@@ -1,14 +1,10 @@
 package com.example.applicationservice.controller;
 
 import com.example.applicationservice.domain.DigitalDocument;
-import com.example.applicationservice.domain.response.ApplicationWorkFlowResponse;
 import com.example.applicationservice.domain.response.DigitalDocumentResponse;
 import com.example.applicationservice.domain.response.ResponseStatus;
 import com.example.applicationservice.service.DigitalDocumentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -23,7 +19,7 @@ public class DigitalDocumentController {
     }
 
     @GetMapping("/{id}")
-    public DigitalDocumentResponse getApplicationWorkFlowById(@PathVariable Integer id) {
+    public DigitalDocumentResponse getDigitalDocumentById(@PathVariable Integer id) {
         Optional<DigitalDocument> optional = digitalDocumentService.getAllDigitalDocument().stream()
                 .filter(d -> d.getId() == id)
                 .findFirst();
@@ -49,4 +45,21 @@ public class DigitalDocumentController {
         }
     }
 
+    //POST createNewDigitalDocument
+    @PostMapping()
+    public DigitalDocumentResponse createNewDigitalDocument(
+            @RequestBody DigitalDocument digitalDocument
+    ){
+        digitalDocumentService.createNewDigitalDocument(digitalDocument);
+
+        return DigitalDocumentResponse.builder()
+                .responseStatus(
+                        ResponseStatus.builder()
+                                .success(true)
+                                .message("New DigitalDocumentResponse created")
+                                .build()
+                )
+                .digitalDocument(digitalDocument)
+                .build();
+    }
 }

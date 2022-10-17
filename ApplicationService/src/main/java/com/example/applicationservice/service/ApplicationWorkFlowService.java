@@ -23,4 +23,12 @@ public class ApplicationWorkFlowService {
 //        return applicationWorkFlowDao.getAll();
         return applicationWorkFlowDao.getAllApplicationWorkFlow();
     }
+
+    public void createNewApplicationWorkFlow(ApplicationWorkFlow applicationWorkFlow) {
+        applicationWorkFlowDao.add(applicationWorkFlow);
+    }
+
+    public void updateUserStatus(Integer id, String status) {
+        applicationWorkFlowDao.updateUserStatus(id, status);
+    }
 }

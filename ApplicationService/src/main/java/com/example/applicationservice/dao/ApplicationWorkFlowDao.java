@@ -18,4 +18,18 @@ public class ApplicationWorkFlowDao extends AbstractHibernateDao<ApplicationWork
         List<ApplicationWorkFlow> applicationWorkFlowList = this.getAll();
         return applicationWorkFlowList.stream().collect(Collectors.toList());
     }
+
+    public ApplicationWorkFlow getApplicationWorkFlowById(int id) {
+        return findById(id);
+    }
+
+    public void updateUserStatus(Integer id, String status) {
+        ApplicationWorkFlow applicationWorkFlow = getApplicationWorkFlowById(id);
+        applicationWorkFlow.setStatus(status);
+        // if not working use update() below, or jdbc
+    }
+
+    public void update(Integer id){
+        update(getApplicationWorkFlowById(id));
+    }
 }

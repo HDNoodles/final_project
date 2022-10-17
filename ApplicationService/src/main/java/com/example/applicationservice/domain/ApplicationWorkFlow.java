@@ -35,4 +35,7 @@ public class ApplicationWorkFlow{
 
     //    @Column(name = "Comment")
     private String comment;
+
+    //Integer id, Integer employeeId, String createDate, String lastModificationDate, String status, String comment
+
 }

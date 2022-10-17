@@ -24,4 +24,8 @@ public class DigitalDocumentService {
     public List<DigitalDocument> getAllDigitalDocument() {
         return digitalDocumentDao.getAll();
     }
+
+    public void createNewDigitalDocument(DigitalDocument digitalDocument) {
+        digitalDocumentDao.add(digitalDocument);
+    }
 }
