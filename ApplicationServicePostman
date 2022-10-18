@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "1100c2aa-8262-47b3-b3f9-8b368f377b4c",
+		"name": "Application Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23455989"
+	},
+	"item": [
+		{
+			"name": "ApplicationWorkFlow",
+			"item": [
+				{
+					"name": "getAllApplicationWorkFlow",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/applicationWorkFlow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applicationWorkFlow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getApplicationWorkFlowById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/applicationWorkFlow/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applicationWorkFlow",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createNewApplicationWorkFlow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employeeId\": 3,\r\n    \"status\": \"pending\",\r\n    \"comment\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/applicationWorkFlow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applicationWorkFlow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStatusApplicationWorkflow",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"rejected\",\r\n    \"comment\": \"not qualified\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/applicationWorkFlow/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applicationWorkFlow",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DigitalDocument",
+			"item": [
+				{
+					"name": "getDigitalDocumentById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/digitalDocument/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"digitalDocument",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createNewDigitalDocument",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"test2 type\",\r\n    \"isRequired\": \"no?\",\r\n    \"path\": \"test2 path\",\r\n    \"description\": \"test2 description\",\r\n    \"title\": \"test2 title\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/digitalDocument",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"digitalDocument"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
