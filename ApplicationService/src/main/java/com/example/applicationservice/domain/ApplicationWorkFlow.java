@@ -1,10 +1,11 @@
 package com.example.applicationservice.domain;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "applicationWorkFlow")
@@ -17,18 +18,22 @@ import javax.persistence.Table;
 public class ApplicationWorkFlow{
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "Id")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "ApplicationWorkFlow_id")
+    private Integer applicationWorkFlow_id;
 
     //    @Column(name = "EmployeeId")
     private Integer employeeId;
 
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     //    @Column(name = "CreateDate")
-    private String createDate;
+    private Date createDate;
 
-    //    @Column(name = "LastModificationDate")
-    private String lastModificationDate;
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "LastModificationDate")
+    private Date lastModificationDate;
 
     //    @Column(name = "Status")
     private String status;

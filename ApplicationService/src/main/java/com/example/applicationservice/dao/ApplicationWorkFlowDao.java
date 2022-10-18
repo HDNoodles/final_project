@@ -2,6 +2,7 @@ package com.example.applicationservice.dao;
 
 import com.example.applicationservice.domain.ApplicationWorkFlow;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,13 +24,14 @@ public class ApplicationWorkFlowDao extends AbstractHibernateDao<ApplicationWork
         return findById(id);
     }
 
-    public void updateUserStatus(Integer id, String status) {
+    public void updateUserStatus(Integer id, ApplicationWorkFlow awf) {
         ApplicationWorkFlow applicationWorkFlow = getApplicationWorkFlowById(id);
-        applicationWorkFlow.setStatus(status);
-        // if not working use update() below, or jdbc
+        applicationWorkFlow.setStatus(awf.getStatus());
+        applicationWorkFlow.setComment(awf.getComment());
+        // if not working try update() method below, or jdbc
     }
 
-    public void update(Integer id){
-        update(getApplicationWorkFlowById(id));
-    }
+//    public void update(Integer id){
+//        update(getApplicationWorkFlowById(id));
+//    }
 }

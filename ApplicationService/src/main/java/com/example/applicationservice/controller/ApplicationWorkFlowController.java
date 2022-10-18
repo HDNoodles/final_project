@@ -35,7 +35,7 @@ public class ApplicationWorkFlowController {
     @GetMapping("/{id}")
     public ApplicationWorkFlowResponse getApplicationWorkFlowById(@PathVariable Integer id) {
         Optional<ApplicationWorkFlow> optional = applicationWorkFlowService.getAllapplicationWorkFlow().stream()
-                .filter(a -> a.getId() == id)
+                .filter(a -> a.getApplicationWorkFlow_id() == id)
                 .findFirst();
         if (optional.isPresent()) {
             return ApplicationWorkFlowResponse.builder()
@@ -79,14 +79,14 @@ public class ApplicationWorkFlowController {
 
 
     //PATCH updateStatusApplicationWorkflow
-    @PatchMapping("/{id}/{status}")
-    public ApplicationWorkFlowResponse updateStatusApplicationWorkflow(@PathVariable Integer id, @PathVariable String status){
-        applicationWorkFlowService.updateUserStatus(id, status);
+    @PatchMapping("/{id}")
+    public ApplicationWorkFlowResponse updateStatusApplicationWorkflow(@PathVariable Integer id, @RequestBody ApplicationWorkFlow awf){
+        applicationWorkFlowService.updateUserStatus(id, awf);
         return ApplicationWorkFlowResponse.builder()
                 .responseStatus(
                         ResponseStatus.builder()
                                 .success(true)
-                                .message("Success! ApplicationWorkFlow status changed")
+                                .message("Success! ApplicationWorkFlow status changed and comment added")
                                 .build()
                 )
                 .applicationWorkFlow(getApplicationWorkFlowById(id).getApplicationWorkFlow())

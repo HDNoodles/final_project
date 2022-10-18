@@ -21,7 +21,7 @@ public class DigitalDocumentController {
     @GetMapping("/{id}")
     public DigitalDocumentResponse getDigitalDocumentById(@PathVariable Integer id) {
         Optional<DigitalDocument> optional = digitalDocumentService.getAllDigitalDocument().stream()
-                .filter(d -> d.getId() == id)
+                .filter(d -> d.getDigitalDocument_id() == id)
                 .findFirst();
         if (optional.isPresent()) {
             return DigitalDocumentResponse.builder()

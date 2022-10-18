@@ -2,9 +2,7 @@ package com.example.applicationservice.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "digitalDocument")
@@ -17,9 +15,9 @@ import javax.persistence.Table;
 public class DigitalDocument {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "Id")
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "DigitalDocument_id")
+    private Integer digitalDocument_id;
 
     //    @Column(name = "Type")
     private String type;

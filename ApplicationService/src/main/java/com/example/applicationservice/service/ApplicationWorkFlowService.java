@@ -28,7 +28,7 @@ public class ApplicationWorkFlowService {
         applicationWorkFlowDao.add(applicationWorkFlow);
     }
 
-    public void updateUserStatus(Integer id, String status) {
-        applicationWorkFlowDao.updateUserStatus(id, status);
+    public void updateUserStatus(Integer id, ApplicationWorkFlow awf) {
+        applicationWorkFlowDao.updateUserStatus(id, awf);
     }
 }
