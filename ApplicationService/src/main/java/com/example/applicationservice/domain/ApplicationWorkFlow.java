@@ -22,12 +22,12 @@ public class ApplicationWorkFlow{
 //    @Column(name = "ApplicationWorkFlow_id")
     private Integer applicationWorkFlow_id;
 
-    //    @Column(name = "EmployeeId")
+//    @Column(name = "EmployeeId")
     private Integer employeeId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    //    @Column(name = "CreateDate")
+//    @Column(name = "CreateDate")
     private Date createDate;
 
     @UpdateTimestamp
@@ -40,6 +40,9 @@ public class ApplicationWorkFlow{
 
     //    @Column(name = "Comment")
     private String comment;
+
+    public ApplicationWorkFlow(Integer applicationWorkFlow_id, String status, String comment) {
+    }
 
     //Integer id, Integer employeeId, String createDate, String lastModificationDate, String status, String comment
 

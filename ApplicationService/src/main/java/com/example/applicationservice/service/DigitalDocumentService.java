@@ -1,13 +1,11 @@
 package com.example.applicationservice.service;
 
 import com.example.applicationservice.dao.DigitalDocumentDao;
-import com.example.applicationservice.domain.ApplicationWorkFlow;
 import com.example.applicationservice.domain.DigitalDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service

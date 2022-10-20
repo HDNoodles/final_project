@@ -28,14 +28,14 @@ public class ApplicationWorkFlowController {
                                 .message("Returning all ApplicationWorkFlow")
                                 .build()
                 )
-                .applicationWorkFlowList(applicationWorkFlowService.getAllapplicationWorkFlow())
+                .applicationWorkFlowList(applicationWorkFlowService.getAllApplicationWorkFlow())
                 .build();
     }
 
-    @GetMapping("/{id}")
-    public ApplicationWorkFlowResponse getApplicationWorkFlowById(@PathVariable Integer id) {
-        Optional<ApplicationWorkFlow> optional = applicationWorkFlowService.getAllapplicationWorkFlow().stream()
-                .filter(a -> a.getApplicationWorkFlow_id() == id)
+    @GetMapping("/{applicationWorkFlow_id}")
+    public ApplicationWorkFlowResponse getApplicationWorkFlowById(@PathVariable Integer applicationWorkFlow_id) {
+        Optional<ApplicationWorkFlow> optional = applicationWorkFlowService.getAllApplicationWorkFlow().stream()
+                .filter(a -> a.getApplicationWorkFlow_id() == applicationWorkFlow_id)
                 .findFirst();
         if (optional.isPresent()) {
             return ApplicationWorkFlowResponse.builder()
@@ -79,9 +79,9 @@ public class ApplicationWorkFlowController {
 
 
     //PATCH updateStatusApplicationWorkflow
-    @PatchMapping("/{id}")
-    public ApplicationWorkFlowResponse updateStatusApplicationWorkflow(@PathVariable Integer id, @RequestBody ApplicationWorkFlow awf){
-        applicationWorkFlowService.updateUserStatus(id, awf);
+    @PostMapping("/update")
+    public ApplicationWorkFlowResponse updateStatusApplicationWorkflowById(@RequestBody ApplicationWorkFlow awf){
+        applicationWorkFlowService.updateStatusApplicationWorkflowById(awf.getApplicationWorkFlow_id(), awf);
         return ApplicationWorkFlowResponse.builder()
                 .responseStatus(
                         ResponseStatus.builder()
@@ -89,7 +89,36 @@ public class ApplicationWorkFlowController {
                                 .message("Success! ApplicationWorkFlow status changed and comment added")
                                 .build()
                 )
-                .applicationWorkFlow(getApplicationWorkFlowById(id).getApplicationWorkFlow())
+                .applicationWorkFlow(getApplicationWorkFlowById(awf.getApplicationWorkFlow_id()).getApplicationWorkFlow())
                 .build();
     }
+
+    //getMapping getApplicationWorkFlowByEmployeeId
+    @GetMapping("/employeeId/{employeeId}")
+    public ApplicationWorkFlowResponse getApplicationWorkFlowByEmployeeId(@PathVariable Integer employeeId) {
+        Optional<ApplicationWorkFlow> optional = applicationWorkFlowService.getAllApplicationWorkFlow().stream()
+                .filter(a -> a.getEmployeeId() == employeeId)
+                .findFirst();
+        if (optional.isPresent()) {
+            return ApplicationWorkFlowResponse.builder()
+                    .responseStatus(
+                            ResponseStatus.builder()
+                                    .success(true)
+                                    .message("Success! ApplicationWorkFlow was found")
+                                    .build()
+                    )
+                    .applicationWorkFlow(optional.get())
+                    .build();
+        } else {
+            return ApplicationWorkFlowResponse.builder()
+                    .responseStatus(
+                            ResponseStatus.builder()
+                                    .success(false)
+                                    .message("Oops, ApplicationWorkFlow not found")
+                                    .build()
+                    )
+                    .build();
+        }
+    }
+
 }

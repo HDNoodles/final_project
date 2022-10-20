@@ -19,16 +19,20 @@ public class ApplicationWorkFlowService {
         this.applicationWorkFlowDao = applicationWorkFlowDao;
     }
 
-    public List<ApplicationWorkFlow> getAllapplicationWorkFlow() {
+    public List<ApplicationWorkFlow> getAllApplicationWorkFlow() {
 //        return applicationWorkFlowDao.getAll();
         return applicationWorkFlowDao.getAllApplicationWorkFlow();
+    }
+
+    public ApplicationWorkFlow getApplicationWorkFlowById(int applicationWorkFlow_id) {
+        return applicationWorkFlowDao.getApplicationWorkFlowById(applicationWorkFlow_id);
     }
 
     public void createNewApplicationWorkFlow(ApplicationWorkFlow applicationWorkFlow) {
         applicationWorkFlowDao.add(applicationWorkFlow);
     }
 
-    public void updateUserStatus(Integer id, ApplicationWorkFlow awf) {
-        applicationWorkFlowDao.updateUserStatus(id, awf);
+    public void updateStatusApplicationWorkflowById(Integer applicationWorkFlow_id, ApplicationWorkFlow awf) {
+        applicationWorkFlowDao.updateStatusApplicationWorkflowById(applicationWorkFlow_id, awf);
     }
 }

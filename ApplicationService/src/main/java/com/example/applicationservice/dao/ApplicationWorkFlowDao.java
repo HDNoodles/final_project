@@ -20,12 +20,12 @@ public class ApplicationWorkFlowDao extends AbstractHibernateDao<ApplicationWork
         return applicationWorkFlowList.stream().collect(Collectors.toList());
     }
 
-    public ApplicationWorkFlow getApplicationWorkFlowById(int id) {
-        return findById(id);
+    public ApplicationWorkFlow getApplicationWorkFlowById(int applicationWorkFlow_id) {
+        return findById(applicationWorkFlow_id);
     }
 
-    public void updateUserStatus(Integer id, ApplicationWorkFlow awf) {
-        ApplicationWorkFlow applicationWorkFlow = getApplicationWorkFlowById(id);
+    public void updateStatusApplicationWorkflowById(Integer applicationWorkFlow_id, ApplicationWorkFlow awf) {
+        ApplicationWorkFlow applicationWorkFlow = getApplicationWorkFlowById(applicationWorkFlow_id);
         applicationWorkFlow.setStatus(awf.getStatus());
         applicationWorkFlow.setComment(awf.getComment());
         // if not working try update() method below, or jdbc
