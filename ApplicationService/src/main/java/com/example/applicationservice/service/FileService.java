@@ -54,18 +54,20 @@ public class FileService {
         return DigitalDocument.builder()
                 .title(fileName)
                 .path(String.valueOf(amazonS3.getUrl(bucketName, fileName)))
+                .type(file.getContentType())
+                .description(file.toString())
                 .build();
     }
 
-    private File convertMultiPartFileToFile(MultipartFile file) {
-        File convertedFile = new File(file.getOriginalFilename());
-        try (FileOutputStream fos = new FileOutputStream(convertedFile)){
-            fos.write(file.getBytes());
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        return convertedFile;
-    }
+//    private File convertMultiPartFileToFile(MultipartFile file) {
+//        File convertedFile = new File(file.getOriginalFilename());
+//        try (FileOutputStream fos = new FileOutputStream(convertedFile)){
+//            fos.write(file.getBytes());
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
+//        return convertedFile;
+//    }
 
     public void downloadObject(String bucketName, String objectName){
         S3Object s3object = amazonS3.getObject(bucketName, objectName);

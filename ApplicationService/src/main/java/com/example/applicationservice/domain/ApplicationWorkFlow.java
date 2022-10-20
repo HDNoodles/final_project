@@ -23,7 +23,7 @@ public class ApplicationWorkFlow{
     private Integer applicationWorkFlow_id;
 
 //    @Column(name = "EmployeeId")
-    private Integer employeeId;
+    private String employeeId;
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

@@ -30,11 +30,8 @@ public class FileController {
 
     @GetMapping("file/buckets")
     public List<String> listBuckets() {
-        System.out.println("calling listbuckets");
         List<Bucket> buckets = fileService.listBuckets();
-        System.out.println("called listbuckets");
         List<String> bucketNames = buckets.stream().map(Bucket::getName).collect(Collectors.toList());
-        System.out.println("returning listbuckets");
         return bucketNames;
     }
 
@@ -46,7 +43,6 @@ public class FileController {
 
     @PostMapping("file/{bucketName}")
     public DocumentInfoResponse uploadFile(@PathVariable String bucketName, @RequestParam String fileName, @RequestParam(value = "file") MultipartFile file) throws IOException {
-        System.out.println("calling to upload");
         DigitalDocument digitalDocument = fileService.uploadObject(bucketName, fileName, file);
         digitalDocumentService.createNewDigitalDocument(digitalDocument);
         return fileService.getDocumentInfo(bucketName, fileName);

@@ -95,9 +95,9 @@ public class ApplicationWorkFlowController {
 
     //getMapping getApplicationWorkFlowByEmployeeId
     @GetMapping("/employeeId/{employeeId}")
-    public ApplicationWorkFlowResponse getApplicationWorkFlowByEmployeeId(@PathVariable Integer employeeId) {
+    public ApplicationWorkFlowResponse getApplicationWorkFlowByEmployeeId(@PathVariable String employeeId) {
         Optional<ApplicationWorkFlow> optional = applicationWorkFlowService.getAllApplicationWorkFlow().stream()
-                .filter(a -> a.getEmployeeId() == employeeId)
+                .filter(a -> a.getEmployeeId().equals(employeeId))
                 .findFirst();
         if (optional.isPresent()) {
             return ApplicationWorkFlowResponse.builder()
