@@ -28,9 +28,9 @@ public class ApplicationWorkFlowServiceTest {
     @Test
     void test_getAllApplicationWorkFlow_success() {
         List<ApplicationWorkFlow> expected = new ArrayList<>();
-        expected.add(new ApplicationWorkFlow(999, 999, now(), now(), "test1", "test1"));
-        expected.add(new ApplicationWorkFlow(998, 998, now(), now(), "test2", "test2"));
-        expected.add(new ApplicationWorkFlow(997, 997, now(), now(), "test3", "test3"));
+        expected.add(new ApplicationWorkFlow(999, "999", now(), now(), "test1", "test1"));
+        expected.add(new ApplicationWorkFlow(998, "998", now(), now(), "test2", "test2"));
+        expected.add(new ApplicationWorkFlow(997, "997", now(), now(), "test3", "test3"));
         Mockito.when(applicationWorkFlowDao.getAllApplicationWorkFlow()).thenReturn(expected);
         assertEquals(expected, applicationWorkFlowService.getAllApplicationWorkFlow());
     }
@@ -46,7 +46,7 @@ public class ApplicationWorkFlowServiceTest {
 
     @Test
     void test_getApplicationWorkFlowById_success(){
-        ApplicationWorkFlow expected = new ApplicationWorkFlow(999, 999, now(), now(), "test1", "test1");
+        ApplicationWorkFlow expected = new ApplicationWorkFlow(999, "999", now(), now(), "test1", "test1");
         Mockito.when(applicationWorkFlowDao.getApplicationWorkFlowById(999)).thenReturn(expected);
         assertEquals(expected, applicationWorkFlowDao.getApplicationWorkFlowById(999));
     }
