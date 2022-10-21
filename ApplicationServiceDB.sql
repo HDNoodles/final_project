@@ -6,7 +6,7 @@ drop table if exists applicationWorkFlow;
 create table if not exists applicationWorkFlow
 (
     applicationWorkFlow_id 				int auto_increment primary key,
-    employeeId  	int,
+    employeeId  	varchar(50),
     createDate   	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     lastModificationDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `status`		varchar(42),
@@ -16,9 +16,9 @@ create table if not exists applicationWorkFlow
 truncate table applicationWorkFlow;
 
 insert into applicationWorkFlow (employeeId, `status`, `comment`) values
-	(1, "approved", "looks good");
+	("6350229ac5141f4a0a6ca2ae", "approved", "looks good");
 insert into applicationWorkFlow (employeeId, `status`, `comment`) values
-    (2, "pending", "");
+    ("6350229fc5141f4a0a6ca2af", "pending", "");
     
 UPDATE applicationWorkFlow
 SET `comment` = ""

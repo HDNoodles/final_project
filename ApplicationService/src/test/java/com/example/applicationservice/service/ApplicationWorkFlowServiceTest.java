@@ -58,7 +58,7 @@ public class ApplicationWorkFlowServiceTest {
 //        ApplicationWorkFlow actual = expected;
 //        applicationWorkFlowService.createNewApplicationWorkFlow(expected);
 //        applicationWorkFlowService.createNewApplicationWorkFlow(actual);
-//        Mockito.verify(applicationWorkFlowService, times(1)).createNewApplicationWorkFlow(expected);
+//        Mockito.verify(applicationWorkFlowService, times(2)).createNewApplicationWorkFlow(expected);
 //        assertEquals(expected, actual);
 //    }
 

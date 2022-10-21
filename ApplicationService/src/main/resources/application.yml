@@ -1,28 +1,29 @@
-#spring:
-#  application:
-#
-#    name: application-service
-#
-#  mvc:
-#    servlet:
-#      path: /application-service
-#    hiddenmethod:
-#      filter:
-#        enabled: true
-#
-#eureka:
-#  instance:
-#    hostname: localhost
-#  client:
-#    fetch-registry: true
-#    register-with-eureka: true
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+
+    name: application-service
+
+  mvc:
+    servlet:
+      path: /application-service
+    hiddenmethod:
+      filter:
+        enabled: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
 cloud:
   aws:
     credentials:
-      access-key: AKIAQAVS53U3H4ZOZB6K
-      secret-key: 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
+      access-key: AKIAQAVS53U3FRN5WDNX
+      secret-key: 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
       useDefaultAwsCredentialsChain: true
     region:
       static: us-east-1

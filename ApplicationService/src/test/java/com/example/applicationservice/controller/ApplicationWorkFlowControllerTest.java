@@ -1,12 +1,15 @@
 package com.example.applicationservice.controller;
 
 import com.example.applicationservice.domain.ApplicationWorkFlow;
+import com.example.applicationservice.security.JwtFilter;
+import com.example.applicationservice.security.JwtProvider;
 import com.example.applicationservice.service.ApplicationWorkFlowService;
 import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -27,7 +30,14 @@ import static org.mockito.Mockito.times;
 
 @WebMvcTest(controllers = ApplicationWorkFlowController.class)
 @RunWith(SpringJUnit4ClassRunner.class)
+@AutoConfigureMockMvc(addFilters = false)
 public class ApplicationWorkFlowControllerTest {
+
+    @MockBean
+    private JwtFilter jwtFilter;
+
+    @MockBean
+    private JwtProvider jwtProvider;
 
     @MockBean
     private ApplicationWorkFlowService applicationWorkFlowService;

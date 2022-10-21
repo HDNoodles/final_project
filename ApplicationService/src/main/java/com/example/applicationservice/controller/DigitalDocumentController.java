@@ -18,10 +18,12 @@ public class DigitalDocumentController {
         this.digitalDocumentService = digitalDocumentService;
     }
 
-    @GetMapping("/{id}")
-    public DigitalDocumentResponse getDigitalDocumentById(@PathVariable Integer id) {
+//    public DigitalDocumentController(){}
+
+    @GetMapping("/{digitalDocument_id}")
+    public DigitalDocumentResponse getDigitalDocumentById(@PathVariable Integer digitalDocument_id) {
         Optional<DigitalDocument> optional = digitalDocumentService.getAllDigitalDocument().stream()
-                .filter(d -> d.getDigitalDocument_id() == id)
+                .filter(d -> d.getDigitalDocument_id() == digitalDocument_id)
                 .findFirst();
         if (optional.isPresent()) {
             return DigitalDocumentResponse.builder()

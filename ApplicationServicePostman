@@ -13,7 +13,13 @@
 					"name": "getAllApplicationWorkFlow",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "localhost:8080/applicationWorkFlow",
 							"host": [
@@ -31,16 +37,22 @@
 					"name": "getApplicationWorkFlowById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/applicationWorkFlow/1",
+							"raw": "localhost:8080/applicationWorkFlow/2",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"applicationWorkFlow",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -50,10 +62,16 @@
 					"name": "createNewApplicationWorkFlow",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"employeeId\": 3,\r\n    \"status\": \"pending\",\r\n    \"comment\": \"\"\r\n}",
+							"raw": "{\r\n    \"employeeId\": \"63505490f1af413335c1ce89\",\r\n    \"status\": \"pending\",\r\n    \"comment\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,11 +94,17 @@
 				{
 					"name": "updateStatusApplicationWorkflow",
 					"request": {
-						"method": "PATCH",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": \"rejected\",\r\n    \"comment\": \"not qualified\"\r\n}",
+							"raw": "{\r\n    \"applicationWorkFlow_id\": 2,\r\n    \"status\": \"rejected\",\r\n    \"comment\": \"not qualified\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,14 +112,46 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/applicationWorkFlow/2",
+							"raw": "localhost:8080/applicationWorkFlow/update",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"applicationWorkFlow",
-								"2"
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getApplicationWorkFlowByEmployeeId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/applicationWorkFlow/employeeId/6350229ac5141f4a0a6ca2ae?=",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"applicationWorkFlow",
+								"employeeId",
+								"6350229ac5141f4a0a6ca2ae"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": ""
+								}
 							]
 						}
 					},
@@ -110,16 +166,23 @@
 					"name": "getDigitalDocumentById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "localhost:8080/digitalDocument/1",
+							"raw": "localhost:8080/applicationWorkFlow/employeeId/6350229fc5141f4a0a6ca2af",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"digitalDocument",
-								"1"
+								"applicationWorkFlow",
+								"employeeId",
+								"6350229fc5141f4a0a6ca2af"
 							]
 						}
 					},
@@ -129,7 +192,13 @@
 					"name": "createNewDigitalDocument",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"type\": \"test2 type\",\r\n    \"isRequired\": \"no?\",\r\n    \"path\": \"test2 path\",\r\n    \"description\": \"test2 description\",\r\n    \"title\": \"test2 title\"\r\n}",
@@ -147,6 +216,129 @@
 							"port": "8080",
 							"path": [
 								"digitalDocument"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "uploadFile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fileName",
+									"value": "ughisdurnbiu",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/sample.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/file/beaconfire-group-project-bucket",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"beaconfire-group-project-bucket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listBuckets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/file/buckets",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"buckets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "downloadFile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/file/beaconfire-group-project-bucket/123",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"beaconfire-group-project-bucket",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDocumentInfo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMSIsInBlcm1pc3Npb25zIjpbeyJhdXRob3JpdHkiOiJkZWxldGUifSx7ImF1dGhvcml0eSI6InVwZGF0ZSJ9LHsiYXV0aG9yaXR5IjoiaHIifSx7ImF1dGhvcml0eSI6ImNyZWF0ZSJ9LHsiYXV0aG9yaXR5IjoicmVhZCJ9XX0.hoifWOsa6Sb-sp1GMv6EnySiO7xBrCfHDzxCQ0h3hmc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/file/info/beaconfire-group-project-bucket/123",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"file",
+								"info",
+								"beaconfire-group-project-bucket",
+								"123"
 							]
 						}
 					},

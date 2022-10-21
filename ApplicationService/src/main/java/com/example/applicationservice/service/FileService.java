@@ -9,8 +9,6 @@ import com.example.applicationservice.domain.DigitalDocument;
 import com.example.applicationservice.domain.response.DigitalDocumentResponse;
 import com.example.applicationservice.domain.response.DocumentInfoResponse;
 import com.example.applicationservice.domain.response.ResponseStatus;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,7 +30,6 @@ public class FileService {
 //    @Value("${application.bucket.name}")
 //    private String bucketName;
 
-    private static final Logger LOG = LoggerFactory.getLogger(FileService.class);
 
 
     public List<Bucket> listBuckets(){
@@ -56,6 +53,7 @@ public class FileService {
                 .path(String.valueOf(amazonS3.getUrl(bucketName, fileName)))
                 .type(file.getContentType())
                 .description(file.toString())
+                .isRequired("yes")
                 .build();
     }
 
@@ -75,7 +73,6 @@ public class FileService {
         try {
             FileUtils.copyInputStreamToFile(inputStream, new File("." + File.separator + objectName));
         } catch (IOException e) {
-            LOG.error(e.getMessage());
         }
     }
 

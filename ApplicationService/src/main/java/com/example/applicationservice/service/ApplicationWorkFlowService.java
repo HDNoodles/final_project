@@ -24,9 +24,9 @@ public class ApplicationWorkFlowService {
         return applicationWorkFlowDao.getAllApplicationWorkFlow();
     }
 
-    public ApplicationWorkFlow getApplicationWorkFlowById(int applicationWorkFlow_id) {
-        return applicationWorkFlowDao.getApplicationWorkFlowById(applicationWorkFlow_id);
-    }
+//    public ApplicationWorkFlow getApplicationWorkFlowById(int applicationWorkFlow_id) {
+//        return applicationWorkFlowDao.getApplicationWorkFlowById(applicationWorkFlow_id);
+//    }
 
     public void createNewApplicationWorkFlow(ApplicationWorkFlow applicationWorkFlow) {
         applicationWorkFlowDao.add(applicationWorkFlow);
